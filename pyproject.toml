@@ -1,0 +1,19 @@
+[project]
+name = "reading_recs"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "feedparser",
+    "httpx",
+    "beautifulsoup4",
+    "lxml",
+    "openai",
+    "python-dotenv",
+]
+
+[tool.setuptools.packages.find]
+include = ["reading_recs*"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
