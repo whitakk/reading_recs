@@ -22,17 +22,12 @@ def build_html(articles: list[ScoredArticle]) -> str:
 
     rows = []
     for sa in articles:
-        excerpt = sa.article.text[:300].strip()
-        if len(sa.article.text) > 300:
-            excerpt += "…"
-
         limited_flag = ' <span style="color:#c0392b;font-size:12px;">[limited data]</span>' if sa.article.limited_data else ""
 
         rows.append(f"""<div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #eee;">
   <h3 style="margin:0 0 4px 0;"><a href="{sa.article.url}">{sa.article.title}</a></h3>
-  <div style="color:#666;font-size:13px;margin-bottom:8px;">{sa.article.source} · {sa.llm_score}/10{limited_flag}</div>
-  <p style="margin:0 0 8px 0;color:#333;font-size:14px;">{excerpt}</p>
-  <p style="margin:0;color:#555;font-size:13px;font-style:italic;">💡 {sa.reason}</p>
+  <div style="color:#666;font-size:13px;margin-bottom:4px;">{sa.article.source} · {sa.llm_score}/10{limited_flag}</div>
+  <div style="color:#333;font-size:14px;">{sa.reason}</div>
 </div>""")
 
     body = "\n".join(rows)
