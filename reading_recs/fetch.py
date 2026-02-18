@@ -16,19 +16,27 @@ _client = httpx.Client(timeout=15, follow_redirects=True, headers={
 
 
 def parse_feeds() -> list[dict]:
-    """Parse feeds.txt, return list of {url, title, is_aggregator}."""
+    """Parse feeds.txt, return list of {url, title, is_aggregator, require_date}."""
     feeds = []
     for line in FEEDS_PATH.read_text().splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        if "|" in line:
-            title, url = line.split("|", 1)
-            title, url = title.strip(), url.strip()
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) >= 2:
+            title, url = parts[0], parts[1]
+            extra = parts[2] if len(parts) > 2 else None
         else:
-            url = line
+            url = parts[0]
             title = url
-        feeds.append({"url": url, "title": title, "is_aggregator": False})
+            extra = None
+        max_entries = int(extra) if extra and extra.isdigit() else FEED_MAX_ENTRIES
+        feeds.append({
+            "url": url,
+            "title": title,
+            "is_aggregator": False,
+            "max_entries": max_entries,
+        })
     return feeds
 
 
@@ -106,7 +114,7 @@ def fetch_feeds() -> list[Article]:
             log.warning("Failed to parse feed %s: %s", feed_info["url"], e)
             continue
 
-        for entry in parsed.entries[:FEED_MAX_ENTRIES]:
+        for entry in parsed.entries[:feed_info["max_entries"]]:
             pub = _entry_published(entry)
             if pub and pub < cutoff:
                 continue

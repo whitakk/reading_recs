@@ -36,13 +36,23 @@ def query_hn(url: str) -> dict:
         return {"comments": 0, "score": 0}
 
 
+_reddit_blocked = False
+
+
 def query_reddit(url: str) -> dict:
     """Query Reddit search JSON API for engagement data on a URL."""
+    global _reddit_blocked
+    if _reddit_blocked:
+        return {"comments": 0, "score": 0}
     try:
         resp = _client.get(
             "https://www.reddit.com/search.json",
             params={"q": f"url:{url}", "sort": "top", "limit": 5},
         )
+        if resp.status_code == 429:
+            log.info("Reddit rate-limited, skipping Reddit for remaining articles")
+            _reddit_blocked = True
+            return {"comments": 0, "score": 0}
         resp.raise_for_status()
         data = resp.json()
         posts = data.get("data", {}).get("children", [])
@@ -61,12 +71,16 @@ def query_reddit(url: str) -> dict:
 
 def enrich(articles: list[Article]) -> list[Article]:
     """Enrich articles with popularity signals and flag above-average ones."""
+    global _reddit_blocked
+    _reddit_blocked = False  # reset per run
+
     for i, article in enumerate(articles):
         hn = query_hn(article.url)
         time.sleep(0.1)  # light rate limiting for HN
 
         reddit = query_reddit(article.url)
-        time.sleep(0.5)  # Reddit rate limiting
+        if not _reddit_blocked:
+            time.sleep(0.5)  # Reddit rate limiting
 
         total_comments = article.comment_count + hn["comments"] + reddit["comments"]
         total_score = hn["score"] + reddit["score"]

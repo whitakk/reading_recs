@@ -1,6 +1,6 @@
 # top
 Marginal Revolution | https://feeds.feedburner.com/marginalrevolution/hCUT
-Paul Graham: Essays | http://www.aaronsw.com/2002/feeds/pgessays.rss
+Paul Graham: Essays | http://www.aaronsw.com/2002/feeds/pgessays.rss | 3
 Stratechery | https://stratechery.com/feed/
 Remains of the Day | https://eugenewei.substack.com/feed/
 
