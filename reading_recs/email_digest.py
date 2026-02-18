@@ -3,6 +3,7 @@ import smtplib
 from datetime import date
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from html import escape
 
 from reading_recs.config import GMAIL_USER, GMAIL_APP_PASSWORD, GMAIL_TO
 from reading_recs.models import ScoredArticle
@@ -25,9 +26,9 @@ def build_html(articles: list[ScoredArticle]) -> str:
         limited_flag = ' <span style="color:#c0392b;font-size:12px;">[limited data]</span>' if sa.article.limited_data else ""
 
         rows.append(f"""<div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #eee;">
-  <h3 style="margin:0 0 4px 0;"><a href="{sa.article.url}">{sa.article.title}</a></h3>
-  <div style="color:#666;font-size:13px;margin-bottom:4px;">{sa.article.source} · {sa.llm_score}/10{limited_flag}</div>
-  <div style="color:#333;font-size:14px;">{sa.reason}</div>
+  <h3 style="margin:0 0 4px 0;"><a href="{sa.article.url}">{escape(sa.article.title)}</a></h3>
+  <div style="color:#666;font-size:13px;margin-bottom:4px;">{escape(sa.article.source)} · {sa.llm_score}/10{limited_flag}</div>
+  <div style="color:#333;font-size:14px;">{escape(sa.reason)}</div>
 </div>""")
 
     body = "\n".join(rows)
