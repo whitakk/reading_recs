@@ -1,11 +1,11 @@
 import logging
-import xml.etree.ElementTree as ET
+from datetime import datetime, timezone, timedelta
 
 import feedparser
 import httpx
 from bs4 import BeautifulSoup
 
-from reading_recs.config import OPML_PATH
+from reading_recs.config import FEEDS_PATH, FEED_LOOKBACK_DAYS, FEED_MAX_ENTRIES
 from reading_recs.models import Article
 
 log = logging.getLogger(__name__)
@@ -15,18 +15,20 @@ _client = httpx.Client(timeout=15, follow_redirects=True, headers={
 })
 
 
-def parse_opml() -> list[dict]:
-    """Parse OPML file, return list of {url, title, is_aggregator}."""
-    tree = ET.parse(OPML_PATH)
+def parse_feeds() -> list[dict]:
+    """Parse feeds.txt, return list of {url, title, is_aggregator}."""
     feeds = []
-    for outline in tree.iter("outline"):
-        xml_url = outline.get("xmlUrl")
-        if xml_url:
-            feeds.append({
-                "url": xml_url,
-                "title": outline.get("title") or outline.get("text") or xml_url,
-                "is_aggregator": outline.get("type") == "aggregator",
-            })
+    for line in FEEDS_PATH.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "|" in line:
+            title, url = line.split("|", 1)
+            title, url = title.strip(), url.strip()
+        else:
+            url = line
+            title = url
+        feeds.append({"url": url, "title": title, "is_aggregator": False})
     return feeds
 
 
@@ -82,10 +84,19 @@ def _get_comment_count(entry) -> int:
     return 0
 
 
+def _entry_published(entry) -> datetime | None:
+    """Return entry publish time as UTC datetime, or None if unavailable."""
+    t = getattr(entry, "published_parsed", None) or getattr(entry, "updated_parsed", None)
+    if t:
+        return datetime(*t[:6], tzinfo=timezone.utc)
+    return None
+
+
 def fetch_feeds() -> list[Article]:
-    """Fetch all feeds from OPML and return Article objects."""
-    feeds = parse_opml()
+    """Fetch all feeds from feeds.txt and return Article objects."""
+    feeds = parse_feeds()
     articles = []
+    cutoff = datetime.now(timezone.utc) - timedelta(days=FEED_LOOKBACK_DAYS)
 
     for feed_info in feeds:
         log.info("Fetching feed: %s", feed_info["title"])
@@ -95,7 +106,11 @@ def fetch_feeds() -> list[Article]:
             log.warning("Failed to parse feed %s: %s", feed_info["url"], e)
             continue
 
-        for entry in parsed.entries:
+        for entry in parsed.entries[:FEED_MAX_ENTRIES]:
+            pub = _entry_published(entry)
+            if pub and pub < cutoff:
+                continue
+
             if feed_info["is_aggregator"]:
                 # For aggregator feeds, extract linked URLs as separate articles
                 summary_html = getattr(entry, "summary", "")

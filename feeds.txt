@@ -1,0 +1,123 @@
+# top
+Marginal Revolution | https://feeds.feedburner.com/marginalrevolution/hCUT
+Paul Graham: Essays | http://www.aaronsw.com/2002/feeds/pgessays.rss
+Stratechery | https://stratechery.com/feed/
+Remains of the Day | https://eugenewei.substack.com/feed/
+
+# thinking
+Dan Wang | http://danwang.co/feed/
+Planned Obsolescence | https://www.planned-obsolescence.org/rss/
+Margins | https://themargins.substack.com/feed/
+Alexey Guzey | https://guzey.substack.com/feed/
+Posts on generative.ink | https://generative.ink/posts/index.xml
+off the run by mary childs | https://offtherun.substack.com/feed/
+Applied Divinity Studies | https://applieddivinitystudies.com/atom.xml
+MD&A | https://philo.substack.com/feed/
+Nabeel S. Qureshi | https://nabeelqu.substack.com/feed
+kwokchain | http://kwokchain.com/feed/
+devonzuegel.com | http://devonzuegel.com/feed.xml
+Infinite Game | https://infinitegame.substack.com/feed/
+drafts — interfluidity | https://drafts.interfluidity.com/feed/index.rss
+world spirit sock puppet | https://worldspiritsockpuppet.com/feed.xml
+Cold Takes | https://www.cold-takes.com/rss/
+ribbonfarm | http://www.ribbonfarm.com/feed/
+Data Taboo | https://taboo.substack.com/feed
+avitalbalwit.com | https://www.avitalbalwit.com/blog-feed.xml
+Candy for Breakfast | https://www.candyforbreakfast.email/feed
+The Scholar's Stage | http://scholars-stage.blogspot.com/feeds/posts/default
+Noahpinion | http://noahpinionblog.blogspot.com/feeds/posts/default
+Nadia Asparouhova | https://nadia.xyz/feed.xml
+Quantian's Newsletter | https://quantian.substack.com/feed
+Natalie Dean, PhD | https://nataliexdean.substack.com/feed
+Uncharted Territories | https://unchartedterritories.substack.com/feed/
+A Zibaldone | https://jzmazlish.substack.com/feed/
+Works in Progress | https://worksinprogress.co/feed/
+Nintil | https://nintil.com/rss.xml
+Dan Luu | https://danluu.com/atom.xml
+luttig's learnings | https://luttig.substack.com/feed/
+Dwarkesh | https://www.dwarkesh.com/feed/
+
+# batch_serious
+Party at the Moontower | https://moontowermeta.com/feed/
+Full Stack Economics | https://fullstackeconomics.com/rss/
+Derek Lowe: In the Pipeline | https://www.science.org/blogs/pipeline/feed
+Chinese Characteristics | https://lillianli.substack.com/feed/
+Thing of Things | https://thingofthings.substack.com/feed/
+Perspectives by Patrick Wyman | https://patrickwyman.substack.com/feed/
+Essays | Basil Halperin | https://www.basilhalperin.com/essays/feed
+Random Critical Analysis | https://randomcriticalanalysis.wordpress.com/feed/
+Construction Physics | https://constructionphysics.substack.com/feed/
+Apricitas Economics | https://apricitas.substack.com/feed/
+Out of the Ordinary | https://outoftheordinary.substack.com/feed
+The Tangled Woof | http://andrewbatson.com/feed/
+Cremieux Recueil | https://cremieux.substack.com/feed
+Strange Tidings | https://strangetidings.substack.com/feed/
+Evan Soltas | http://esoltas.blogspot.com/feeds/posts/default
+The Century of Biology | https://centuryofbio.substack.com/feed/
+Dylan Matthews | https://dylanmatthews.substack.com/feed
+Dan Davies - Back of Mind | https://backofmind.substack.com/feed
+
+# batch_data
+Eugene Yan | https://eugeneyan.com/rss/
+One Useful Thing | https://oneusefulthing.substack.com/feed
+Not Boring by Packy McCormick | https://notboring.substack.com/feed/
+Interconnects AI | https://robotic.substack.com/feed
+Understanding AI | https://www.understandingai.org/feed
+Import AI | https://importai.substack.com/feed
+Stay SaaSy | https://staysaasy.com/feed.xml
+benkuhn.net | http://www.benkuhn.net/rss/
+Irrational Exuberance | http://lethain.com/feeds/all/
+Alex Danco's Newsletter | https://danco.substack.com/feed/
+Hardcore Software by Steven Sinofsky | https://hardcoresoftware.learningbyshipping.com/feed/
+FreakTakes | https://freaktakes.substack.com/feed
+Matt Rickard | https://blog.matt-rickard.com/feed
+Vicki Boykis | http://veekaybee.github.io/feed.xml
+Sebastian Ruder | http://ruder.io/rss/index.rss
+StaffEng | https://staffeng.com/rss
+AI Futures Project | https://blog.ai-futures.org/feed
+Statistical Modeling, Causal Inference, and Social Science | http://www.stat.columbia.edu/~cook/movabletype/mlm/atom.xml
+Variance Explained | http://varianceexplained.org/feed.xml
+Chelsea Troy | https://chelseatroy.com/feed/
+The Developing Dev | https://www.developing.dev/feed
+Engineering Enablement | https://abinoda.substack.com/feed
+Netflix TechBlog | http://techblog.netflix.com/feeds/posts/default
+Stripe Blog | https://stripe.com/blog/feed.rss
+Apple Machine Learning Journal | https://machinelearning.apple.com/feed.xml
+Microsoft Research | https://www.microsoft.com/en-us/research/feed/
+Google AI Blog | http://googleresearch.blogspot.com/atom.xml
+Sean Goedecke | https://www.seangoedecke.com/rss.xml 
+Evan Hahn | https://evanhahn.com/blog/index.xml 
+
+# batch_fun
+Matt Lakeman | https://dormin.org/feed/
+The Sunday Long Read | https://sundaylongread.com/feed/
+Why is this interesting? | https://whyisthisinteresting.substack.com/feed/
+The Whippet | https://thewhippet.substack.com/feed/
+Now I Know | http://nowiknow.com/feed/
+A Thing or Two | https://athingortwo.substack.com/feed
+Stew's Letter | https://stewfortier.substack.com/feed/
+Make Time | https://maketime.blog/feed/
+The Viewer | https://theviewer.is/rss/
+
+# fun
+smitten kitchen | http://feeds.feedburner.com/smittenkitchen
+Useless Etymology | https://uselessetymology.com/feed/
+LOL (lots of links) | https://lotsoflinks.substack.com/feed
+SubMakk | https://rebeccamakkai.substack.com/feed
+
+# sports
+Smart Football | http://smartfootball.com/feed
+Cleaning the Glass | https://cleaningtheglass.com/feed/
+medium lights | https://mediumlights.substack.com/feed/
+kenpom.com blog | http://kenpom.com/blog/index.php/weblog/rss_2.0/
+Tangotiger Blog | http://tangotiger.com/index.php/site/atom
+Sabermetric Research | http://sabermetricresearch.blogspot.com/feeds/posts/default
+
+# parenting
+Taking Cara Babies | https://takingcarababies.com/feed.atom
+Now What | https://melindawmoyer.substack.com/feed
+The New Fatherhood | https://www.thenewfatherhood.org/feed/
+A Cup of Ambition | https://acupofambition.substack.com/feed
+
+# people
+Frequently Bayesian | https://frequentlybayesian.wordpress.com/feed/
