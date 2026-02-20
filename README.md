@@ -16,7 +16,7 @@ GMAIL_TO=
 2. Install dependencies (Python 3.11+):
 
 ```bash
-pip install -r requirements.txt
+pip install .
 ```
 
 ## Running
