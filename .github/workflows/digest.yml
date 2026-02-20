@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
+      - run: pip install .
       - run: python -m reading_recs
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
