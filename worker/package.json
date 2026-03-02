@@ -1,0 +1,7 @@
+{
+  "name": "reading-recs-feedback",
+  "private": true,
+  "devDependencies": {
+    "wrangler": "^3"
+  }
+}

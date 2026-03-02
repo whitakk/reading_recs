@@ -22,7 +22,12 @@ FAVORITES_PATH = ROOT_DIR / "examples" / "favorites.md"
 # Pipeline constants
 FEED_LOOKBACK_DAYS = 7
 FEED_MAX_ENTRIES = 10  # per feed, as fallback for undated feeds
-EMBEDDING_TOP_N = 30
 LLM_SCORE_THRESHOLD = 6
 MIN_ARTICLES = 5
 MAX_ARTICLES = 10
+
+# Cloudflare (feedback system)
+CLOUDFLARE_API_TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN", "")
+CLOUDFLARE_ACCOUNT_ID = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")
+CLOUDFLARE_KV_NAMESPACE_ID = os.environ.get("CLOUDFLARE_KV_NAMESPACE_ID", "")
+WORKER_BASE_URL = os.environ.get("WORKER_BASE_URL", "")
