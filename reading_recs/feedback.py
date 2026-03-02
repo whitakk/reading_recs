@@ -53,7 +53,7 @@ def push_digest_to_kv(digest_id: str, articles: list[ScoredArticle]):
 
     key = f"digest:{digest_id}"
     url = f"{_kv_base_url()}/values/{key}"
-    resp = httpx.put(url, headers=_kv_headers(), content=json.dumps(payload))
+    resp = httpx.put(url, headers=_kv_headers(), content=json.dumps(payload), timeout=30.0)
     if resp.status_code == 200:
         log.info("Pushed digest %s to KV (%d articles)", digest_id, len(articles))
     else:
@@ -68,7 +68,7 @@ def sync_feedback():
 
     # List all keys with feedback: prefix
     url = f"{_kv_base_url()}/keys"
-    resp = httpx.get(url, headers=_kv_headers(), params={"prefix": "feedback:"})
+    resp = httpx.get(url, headers=_kv_headers(), params={"prefix": "feedback:"}, timeout=30.0)
     if resp.status_code != 200:
         log.warning("Failed to list KV keys: %s %s", resp.status_code, resp.text[:200])
         return
@@ -81,7 +81,7 @@ def sync_feedback():
     log.info("Found %d feedback entries in KV", len(keys))
     for key in keys:
         value_url = f"{_kv_base_url()}/values/{key}"
-        value_resp = httpx.get(value_url, headers=_kv_headers())
+        value_resp = httpx.get(value_url, headers=_kv_headers(), timeout=30.0)
         if value_resp.status_code != 200:
             log.warning("Failed to read KV key %s: %s", key, value_resp.status_code)
             continue
