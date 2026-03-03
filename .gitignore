@@ -208,4 +208,5 @@ __marimo__/
 
 # Project
 .claude/
-.claude/
+node_modules/
+.DS_Store

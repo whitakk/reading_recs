@@ -1,0 +1,7 @@
+name = "reading-recs-feedback"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "FEEDBACK_KV"
+id = "82ced29b87524eba818547cec1725674"

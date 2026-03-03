@@ -1,6 +1,5 @@
 import json
 import logging
-import random
 import re
 
 import openai
@@ -54,7 +53,14 @@ def _parse_llm_response(text: str) -> dict | None:
     return None
 
 
-def score_article(article_text: str, title: str, source: str, popularity_context: str, few_shot: str) -> dict | None:
+def score_article(
+    article_text: str,
+    title: str,
+    source: str,
+    popularity_context: str,
+    few_shot: str,
+    preference_context: str = "",
+) -> dict | None:
     """Score a single article using an LLM."""
     user_msg = f"""Title: {title}
 Source: {source}
@@ -62,8 +68,12 @@ Popularity: {popularity_context}
 
 Text (excerpt):
 {article_text[:3000]}
-{few_shot}
-Score this article."""
+{few_shot}"""
+
+    if preference_context:
+        user_msg += f"\n{preference_context}\n"
+
+    user_msg += "\nScore this article."
 
     try:
         resp = _client.chat.completions.create(
@@ -84,6 +94,14 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
     """Score candidates with LLM, select top articles for digest."""
     few_shot = _load_few_shot_examples()
 
+    # Load preference summary if available
+    preference_context = ""
+    pref = db.get_preference_summary()
+    if pref:
+        summary, count = pref
+        preference_context = f"\nUser preference profile (based on {count} ratings):\n{summary}\n"
+        log.info("Using preference profile (%d ratings)", count)
+
     for sa in candidates:
         popularity_ctx = (
             f"{'Above' if sa.article.is_above_average else 'Below'} average engagement for {sa.article.source}. "
@@ -93,15 +111,12 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
             popularity_ctx += " (Limited text data — full article could not be fetched.)"
 
         result = score_article(
-            sa.article.text, sa.article.title, sa.article.source, popularity_ctx, few_shot,
+            sa.article.text, sa.article.title, sa.article.source, popularity_ctx, few_shot, preference_context,
         )
         if result:
             sa.llm_score = result["score"]
             sa.reason = result["reason"]
             log.info("  %s — score: %d, reason: %s", sa.article.title[:50], sa.llm_score, sa.reason)
-
-    # Validation: every 7th run, also score 5 random embedding-rejected articles
-    _maybe_run_validation(candidates)
 
     # Select: score >= threshold, floor at MIN, cap at MAX
     passing = [sa for sa in candidates if sa.llm_score >= LLM_SCORE_THRESHOLD]
@@ -115,25 +130,3 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
 
     selected = passing[:MAX_ARTICLES]
     return selected
-
-
-def _maybe_run_validation(candidates: list[ScoredArticle]):
-    """Every 7th run, LLM-score some embedding-rejected articles for calibration."""
-    conn = db.get_conn()
-    run_count = conn.execute("SELECT COUNT(DISTINCT run_date) FROM articles").fetchone()[0]
-    conn.close()
-
-    if run_count % 7 != 0:
-        return
-
-    # Pick 5 from the bottom half of embedding scores
-    bottom = sorted(candidates, key=lambda s: s.embedding_score)[:len(candidates) // 2]
-    sample = random.sample(bottom, min(5, len(bottom)))
-    few_shot = _load_few_shot_examples()
-
-    log.info("Running validation on %d embedding-rejected articles", len(sample))
-    for sa in sample:
-        result = score_article(sa.article.text, sa.article.title, sa.article.source, "", few_shot)
-        if result:
-            db.save_validation(sa.article.url, sa.embedding_score, result["score"])
-            log.info("  Validation: %s — embed=%.3f, llm=%d", sa.article.title[:40], sa.embedding_score, result["score"])

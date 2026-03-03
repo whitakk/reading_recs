@@ -15,6 +15,5 @@ class Article:
 @dataclass
 class ScoredArticle:
     article: Article
-    embedding_score: float = 0.0
     llm_score: float = 0.0
     reason: str = ""
