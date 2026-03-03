@@ -46,6 +46,12 @@ The DB only tracks articles that were actually **recommended** (sent in a digest
 git fetch origin && git merge origin/main
 ```
 
+If there's a merge conflict on `data/reading_recs.db` (a binary file), always take the `main` version — it's the most recent CI-updated DB:
+
+```bash
+git fetch origin && git merge origin/main -X theirs --no-edit
+```
+
 ## .env required keys
 
 ```
@@ -54,6 +60,16 @@ GMAIL_USER=
 GMAIL_APP_PASSWORD=
 GMAIL_TO=
 ```
+
+## Deploying the Cloudflare Worker
+
+If you modify `worker/src/index.js`, redeploy manually:
+
+```bash
+cd worker && npx wrangler deploy
+```
+
+The worker URL is stable — no need to update secrets after redeployment.
 
 ## .env optional keys (feedback system)
 
