@@ -54,8 +54,9 @@ Cremieux Recueil | https://cremieux.substack.com/feed
 Strange Tidings | https://strangetidings.substack.com/feed/
 Evan Soltas | http://esoltas.blogspot.com/feeds/posts/default
 The Century of Biology | https://centuryofbio.substack.com/feed/
-Dylan Matthews | https://dylanmatthews.substack.com/feed
-Dan Davies - Back of Mind | https://backofmind.substack.com/feed
+Dylan Matthews | https://dylanmatthews.substack.com/feed/
+Dan Davies - Back of Mind | https://backofmind.substack.com/feed/
+Strange Loop Canon | https://www.strangeloopcanon.com/feed/
 
 # batch_data
 Eugene Yan | https://eugeneyan.com/rss/
@@ -98,6 +99,7 @@ A Thing or Two | https://athingortwo.substack.com/feed
 Stew's Letter | https://stewfortier.substack.com/feed/
 Make Time | https://maketime.blog/feed/
 The Viewer | https://theviewer.is/rss/
+Justin Kuiper | https://justinkuiper.substack.com/feed/
 
 # fun
 smitten kitchen | http://feeds.feedburner.com/smittenkitchen
