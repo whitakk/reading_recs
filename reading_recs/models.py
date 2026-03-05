@@ -17,3 +17,4 @@ class ScoredArticle:
     article: Article
     llm_score: float = 0.0
     reason: str = ""
+    adjusted_score: float = 0.0
