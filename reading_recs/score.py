@@ -11,6 +11,8 @@ from reading_recs.config import (
     LLM_SCORE_THRESHOLD,
     MIN_ARTICLES,
     MAX_ARTICLES,
+    SOURCE_PENALTY_PER_REC,
+    SOURCE_PENALTY_LOOKBACK_DAYS,
 )
 from reading_recs.models import ScoredArticle
 
@@ -118,14 +120,24 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
             sa.reason = result["reason"]
             log.info("  %s — score: %d, reason: %s", sa.article.title[:50], sa.llm_score, sa.reason)
 
-    # Select: score >= threshold, floor at MIN, cap at MAX
-    passing = [sa for sa in candidates if sa.llm_score >= LLM_SCORE_THRESHOLD]
-    passing.sort(key=lambda s: s.llm_score, reverse=True)
+    # Apply source variety penalty based on recent recommendation history
+    source_counts = db.get_recent_source_counts(SOURCE_PENALTY_LOOKBACK_DAYS)
+    for sa in candidates:
+        count = source_counts.get(sa.article.source, 0)
+        penalty = SOURCE_PENALTY_PER_REC * count
+        sa.adjusted_score = sa.llm_score - penalty
+        if penalty > 0:
+            log.info("  %s — penalty %.1f (source '%s' recommended %d times in last %d days)",
+                     sa.article.title[:50], penalty, sa.article.source, count, SOURCE_PENALTY_LOOKBACK_DAYS)
+
+    # Select: adjusted_score >= threshold, floor at MIN, cap at MAX
+    passing = [sa for sa in candidates if sa.adjusted_score >= LLM_SCORE_THRESHOLD]
+    passing.sort(key=lambda s: s.adjusted_score, reverse=True)
 
     if len(passing) < MIN_ARTICLES:
-        # Fall back to top by LLM score
+        # Fall back to top by adjusted score
         all_scored = [sa for sa in candidates if sa.llm_score > 0]
-        all_scored.sort(key=lambda s: s.llm_score, reverse=True)
+        all_scored.sort(key=lambda s: s.adjusted_score, reverse=True)
         passing = all_scored[:MIN_ARTICLES]
 
     selected = passing[:MAX_ARTICLES]

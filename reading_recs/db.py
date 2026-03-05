@@ -62,6 +62,16 @@ def init_db():
     conn.close()
 
 
+def get_recent_source_counts(lookback_days: int) -> dict[str, int]:
+    conn = get_conn()
+    rows = conn.execute(
+        "SELECT source, COUNT(*) FROM articles WHERE recommended = 1 AND run_date >= date('now', ? || ' days') GROUP BY source",
+        (f"-{lookback_days}",),
+    ).fetchall()
+    conn.close()
+    return {row[0]: row[1] for row in rows}
+
+
 def get_previously_recommended() -> set[str]:
     conn = get_conn()
     rows = conn.execute("SELECT url FROM articles WHERE recommended = 1").fetchall()
