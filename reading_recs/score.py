@@ -28,8 +28,8 @@ Criteria:
 - Differentiated — unique perspective, not a generic take
 - Topically biased toward (but not limited to): economics, AI, data science, technology, business strategy, public policy
 
-Respond with ONLY a JSON object: {"score": <1-10>, "reason": "<1-2 sentences summarizing what makes it interesting>"}
-The reason should tell the reader what they'll get from the article. Be direct — don't start with 'This article' or 'The author'. Example: 'Argues that gig economy minimum wages backfire by reducing flexibility, with strong evidence from recent Uber data.'"""
+Respond with ONLY a JSON object: {"score": <1-10>, "reason": "<2 sentences>"}
+The reason should be a blurb for the reader — either pull out the most surprising or counterintuitive insight from the piece, or summarize the core argument/story. Be direct and specific to this piece. Don't start with 'This article' or 'The author'. Don't editorialize about quality. Example: 'Gig economy minimum wages backfire by reducing flexibility — Uber data shows drivers earn less overall after wage floors are set. The real beneficiary turns out to be the platform, not workers.'"""
 
 
 def _load_few_shot_examples() -> str:
