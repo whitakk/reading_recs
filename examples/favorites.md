@@ -6,27 +6,27 @@ These are examples of articles I find valuable. They calibrate the recommendatio
 ## The world will only get weirder
 https://stevecoast.com/2015/03/27/the-world-will-only-get-weirder/
 
-This essay stands out for its thoughtful, clear-sighted voice and its unusually deep lens on progress and unintended consequences—tracing not just the facts of aircraft disasters but the broader, sometimes paradoxical, impacts of rulemaking. Its value lies in connecting diverse examples and systems-thinking, revealing hidden patterns and sparking new ways of understanding contemporary complexity.
+Progress compounds strangeness: every solved problem creates new edge cases, regulations, and second-order effects that make the world harder to navigate. The result isn't stability but accelerating weirdness, and systems designed for yesterday's problems keep creating tomorrow's surprises.
 
 ## Bears Will Be Boys
 https://pudding.cool/2025/07/kids-books/
 
-This piece is distinctive for its introspective, almost conversational voice, as the author interrogates their own assumptions about gender in children's books and invites readers to reflect along with them. Rather than simply reporting data, it offers relatable self-awareness and a fresh lens on a subtle but pervasive aspect of everyday storytelling.
+A data analysis of children's books finds that male animal characters vastly outnumber female ones, and that gendered behavior patterns are encoded even when species have no biological sex differences. The author starts skeptical of their own hypothesis and ends up convincing themselves through the data.
 
 ## Seeing Like an Algorithm
 https://www.eugenewei.com/blog/2020/9/18/seeing-like-an-algorithm
 
-This note is exceptional for its layered, analytical voice and its ability to bridge high-level theory with concrete design insights. The author uniquely explores how TikTok’s user interface and mechanics deliver algorithmically "legible" data, weaving together cultural critique, technical understanding, and sharp personal commentary for a deep, original take on how algorithms shape modern platforms.
+TikTok's cold-start algorithm works because its UI strips away social signals and forces content to compete purely on engagement — no follower counts, no likes visible upfront. This "algorithmic legibility" is a deliberate design choice that most Western platforms can't copy because they're too socially entrenched.
 
 ## Interfluidity - Why is finance so complex?
 http://ftalphaville.ft.com/blog/2011/12/23/814381/abstractions-and-morality-in-modern-finance/
 
-This note is interesting for its uncompromising voice and its argument that financial complexity is not a bug to be fixed but a feature that sustains modern markets and power structures. It offers unusual depth by blending moral critique, game theory, and vivid metaphors to expose how opacity and abstraction can be strategically valuable—even when they shade into the fraudulent.
+Financial complexity isn't a bug waiting to be fixed — it's a load-bearing feature that obscures moral responsibility and sustains power structures. Opacity is valuable to those who profit from it, which is why reform efforts that try to "simplify" finance keep failing.
 
 ## Welcome to the Diamond Age
 https://www.composer.trade/blog/welcome-to-the-diamond-age
 
-This note stands out for its engaging, first-person voice and its clever use of sci-fi metaphors to contextualize the rise of large language models. By blending personal narrative, cultural references, and insightful tech critique, the author offers a uniquely accessible and thought-provoking perspective on the transformative power and limits of AI.
+Neal Stephenson's Diamond Age predicted a world where AI tutors give personalized education to anyone — and LLMs are delivering exactly that, decades later. The piece traces how the sci-fi premise maps onto current AI capabilities and what it implies for knowledge work and inequality.
 
 ## Software 2.0 — Andrej Karpathy
 https://karpathy.medium.com/software-2-0-a64152b37c35
@@ -41,44 +41,44 @@ The biggest lesson from 70 years of AI research is that general methods leveragi
 ## Big Tech Sees Like a State
 https://diff.substack.com/p/big-tech-sees-like-a-state
 
-This article stands out for its intellectual depth and synthesis: it weaves together history, political theory, and cutting-edge technology to reveal fresh insights about "legibility" and control in both states and tech companies. The author’s voice is both authoritative and curious, delivering a unique perspective that connects abstract social concepts to everyday realities in a way that's both thought-provoking and accessible.
+James Scott's concept of "legibility" — how states simplify and standardize messy reality to make it governable — applies directly to how tech platforms redesign behavior to make users algorithmically tractable. The parallel reveals that platform control and state control share deeper structural logic than most tech criticism acknowledges.
 
 ## The age of distributed truth
 https://www.eugenewei.com/blog/2017/6/28/the-truth-is-distributed
 
-Wei’s essay stands out for its clear, metaphor-rich framing of “truth” as a distributed system, blending technical intuition with cultural observation in a way that feels both rigorous and conversational. His voice is uniquely valuable because he doesn’t just diagnose the fragmentation of shared reality; he traces its structural causes across media, incentives, and human psychology, giving readers a mental model they can reuse rather than a one-off hot take.
+Shared reality used to be enforced by centralized gatekeepers; now truth is distributed across networks with no authoritative node. Wei argues this isn't just a media problem but a structural consequence of how information incentives and social graphs interact — and that no fact-checking solution addresses the root cause.
 
 ## Definite optimism as human capital | Dan Wang
 https://danwang.co/definite-optimism-as-human-capital/
 
-This essay stands out for its thoughtful exploration of how optimism, imagination, and cultural narratives shape technological progress and human capital, not just economic variables. With a distinctive voice blending personal reflection, economic critique, and unique provocations, the piece goes far beyond standard discussions to offer a fresh, nuanced vision of innovation and growth.
+Technological stagnation isn't primarily an economic problem — it's a cultural one. When a society stops producing people who can imagine and execute on ambitious physical projects, that capacity atrophies and becomes hard to rebuild even with money and policy. Manufacturing and engineering matter as much for their effect on human capital as for their direct output.
 
 ## Why your mental map of the world is (probably) wrong
 https://www.nationalgeographic.com/culture/2018/11/all-over-the-map-mental-mapping-misconceptions/
 
-This piece is uniquely engaging because it masterfully blends surprising geography facts with an exploration of how persistent misconceptions shape our mental models, using a voice that is both approachable and enlightening. The depth comes from its clear examples and expert insights, making readers question what they think they 'know' about the world’s map.
+Most people's mental maps contain systematic errors — Europe appears much larger relative to Africa than it actually is, and Mercator projections have quietly shaped geopolitical intuitions for centuries. The distortions aren't random; they reflect whose perspective the maps were originally designed for.
 
 ## Ads Don't Work That Way
 https://meltingasphalt.com/ads-dont-work-that-way/
 
-This essay is compelling because it blends clear, almost story-like exposition with rigorous, multi-layered reasoning, turning a familiar topic (advertising) into a subtle exploration of human psychology and culture. The author’s voice is distinctive in how it patiently dismantles naive models, builds richer mental frameworks, and anticipates reader objections, making the argument feel both intellectually serious and surprisingly fun to think with.
+The standard model of advertising — persuasion through repetition — is probably wrong. Ads work primarily through cultural imprinting: they create shared knowledge that a product is popular, which makes it a safer social choice. This explains why ads often work even when people consciously dislike or distrust them.
 
 ## Doordash and Pizza Arbitrage
 https://themargins.substack.com/p/doordash-and-pizza-arbitrage
 
-This note is memorable for its sharp, witty narrative and the author's first-hand, insider perspective on the strange world of food delivery platforms. The blend of personal anecdote, economic analysis, and irreverent humor delivers a uniquely revealing and entertaining account that exposes industry quirks and deeper systemic issues.
+A restaurant owner discovers DoorDash listed his restaurant without permission and is charging customers more than his menu price — so he starts ordering his own pizzas through the app for a profit. The arbitrage exposes how food delivery platforms are subsidizing growth by absorbing losses that neither restaurants nor customers fully understand.
 
 ## War over being nice
 https://josephg.com/blog/war-over-being-nice/
 
-This essay stands out for its candid, self-reflective tone and willingness to tackle complex, emotionally charged cultural dynamics around responsibility, gender, and conflict. Its exploration is both personal and analytical, making abstract debates about "niceness" and workplace norms feel immediate, nuanced, and insightful rather than just academic.
+"Niceness" in professional culture isn't neutral — it functions as a social norm that suppresses conflict in ways that disproportionately benefit some groups over others. The essay traces how demands for niceness can be weaponized, and why the people most invested in maintaining it often have the most to lose from direct confrontation.
 
 ## Matthew Walker's "Why We Sleep" Is Riddled with Scientific and Factual Errors
 https://guzey.com/books/why-we-sleep/
 
-This essay is notable for its meticulous, clear-eyed dissection of a popular science bestseller, combining a methodical breakdown of scientific claims with thoughtful critique of their cultural and practical impact. What makes it especially worthwhile is the author's measured, almost pedagogical tone, as he exposes logical leaps and misleading assertions, resulting in a critique that's not just skeptical but uniquely constructive and evidence-driven.
+Walker's bestseller overstates sleep deprivation risks by selectively citing studies, misrepresenting findings, and in several cases getting the data directionally backwards. The critique is methodical and devastating — and raises broader questions about how science popularizers get away with poor scholarship when the message is one people want to believe.
 
 ## The Social Subsidy of Angel Investing
 https://alexdanco.com/2019/11/27/the-social-subsidy-of-angel-investing/
 
-This note is noteworthy for its original and nuanced argument: it dissects how angel investing in Silicon Valley is driven not just by financial returns but by social status, and how this phenomenon acts as a unique "subsidy" fueling the tech ecosystem. The author’s voice is insightful and observant, blending personal perspective with sharp sociological analysis in a way that feels both revealing and distinctly rooted in lived startup culture.
+Angel investing in Silicon Valley functions partly as a status game — investors get social capital and insider access even when financial returns are mediocre. This status subsidy lowers the effective cost of early-stage capital, which means the startup ecosystem is partly funded by social dynamics rather than expected returns.
