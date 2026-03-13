@@ -57,6 +57,7 @@ The Century of Biology | https://centuryofbio.substack.com/feed/
 Dylan Matthews | https://dylanmatthews.substack.com/feed/
 Dan Davies - Back of Mind | https://backofmind.substack.com/feed/
 Strange Loop Canon | https://www.strangeloopcanon.com/feed/
+Proof Trading | https://medium.com/feed/prooftrading
 
 # batch_data
 Eugene Yan | https://eugeneyan.com/rss/
