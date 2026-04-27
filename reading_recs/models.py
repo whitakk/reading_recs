@@ -7,6 +7,7 @@ class Article:
     title: str
     source: str
     text: str
+    source_section: str = ""
     comment_count: int = 0
     is_above_average: bool = False
     limited_data: bool = False
