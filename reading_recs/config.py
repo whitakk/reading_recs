@@ -25,6 +25,7 @@ FEED_MAX_ENTRIES = 10  # per feed, as fallback for undated feeds
 LLM_SCORE_THRESHOLD = 6
 MIN_ARTICLES = 5
 MAX_ARTICLES = 10
+TOP_SOURCE_BOOST = 2.0
 SOURCE_PENALTY_PER_REC = 0.3    # score penalty per recent recommendation from the same source
 SOURCE_PENALTY_LOOKBACK_DAYS = 14  # window for counting recent recommendations
 

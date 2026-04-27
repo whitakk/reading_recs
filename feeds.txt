@@ -1,41 +1,47 @@
 # top
-Marginal Revolution | https://feeds.feedburner.com/marginalrevolution/hCUT
 Paul Graham: Essays | http://www.aaronsw.com/2002/feeds/pgessays.rss | 3
-Stratechery | https://stratechery.com/feed/
 Remains of the Day | https://eugenewei.substack.com/feed/
-
-# thinking
 Dan Wang | http://danwang.co/feed/
+Alexey Guzey | https://guzey.substack.com/feed/
+off the run by mary childs | https://offtherun.substack.com/feed/
+drafts — interfluidity | https://drafts.interfluidity.com/feed/index.rss
+Nabeel S. Qureshi | https://nabeelqu.substack.com/feed
+MD&A | https://philo.substack.com/feed/
+The Scholar's Stage | http://scholars-stage.blogspot.com/feeds/posts/default
+Nadia Asparouhova | https://nadia.xyz/feed.xml
+Nintil | https://nintil.com/rss.xml
+Dan Luu | https://danluu.com/atom.xml
+benkuhn.net | http://www.benkuhn.net/rss/
+Irrational Exuberance | http://lethain.com/feeds/all/
+Stay SaaSy | https://staysaasy.com/feed.xml
+Statistical Modeling, Causal Inference, and Social Science | http://www.stat.columbia.edu/~cook/movabletype/mlm/atom.xml
+smitten kitchen | http://feeds.feedburner.com/smittenkitchen
+Noahpinion | https://www.noahpinion.blog/feed
+Links I Would Gchat You | https://linksiwouldgchatyou.substack.com/feed/
+
+# misc
+Eating Policy | https://www.eatingpolicy.com/feed
 Planned Obsolescence | https://www.planned-obsolescence.org/rss/
 Margins | https://themargins.substack.com/feed/
-Alexey Guzey | https://guzey.substack.com/feed/
 Posts on generative.ink | https://generative.ink/posts/index.xml
-off the run by mary childs | https://offtherun.substack.com/feed/
 Applied Divinity Studies | https://applieddivinitystudies.com/atom.xml
-MD&A | https://philo.substack.com/feed/
-Nabeel S. Qureshi | https://nabeelqu.substack.com/feed
 kwokchain | http://kwokchain.com/feed/
 devonzuegel.com | http://devonzuegel.com/feed.xml
 Infinite Game | https://infinitegame.substack.com/feed/
-drafts — interfluidity | https://drafts.interfluidity.com/feed/index.rss
 world spirit sock puppet | https://worldspiritsockpuppet.com/feed.xml
 Cold Takes | https://www.cold-takes.com/rss/
 ribbonfarm | http://www.ribbonfarm.com/feed/
 Data Taboo | https://taboo.substack.com/feed
 avitalbalwit.com | https://www.avitalbalwit.com/blog-feed.xml
 Candy for Breakfast | https://www.candyforbreakfast.email/feed
-The Scholar's Stage | http://scholars-stage.blogspot.com/feeds/posts/default
-Noahpinion | http://noahpinionblog.blogspot.com/feeds/posts/default
-Nadia Asparouhova | https://nadia.xyz/feed.xml
 Quantian's Newsletter | https://quantian.substack.com/feed
 Natalie Dean, PhD | https://nataliexdean.substack.com/feed
 Uncharted Territories | https://unchartedterritories.substack.com/feed/
 A Zibaldone | https://jzmazlish.substack.com/feed/
 Works in Progress | https://worksinprogress.co/feed/
-Nintil | https://nintil.com/rss.xml
-Dan Luu | https://danluu.com/atom.xml
 luttig's learnings | https://luttig.substack.com/feed/
 Dwarkesh | https://www.dwarkesh.com/feed/
+Stripe Economics | https://www.stripeeconomics.com/feed
 
 # batch_serious
 Party at the Moontower | https://moontowermeta.com/feed/
@@ -58,6 +64,7 @@ Dylan Matthews | https://dylanmatthews.substack.com/feed/
 Dan Davies - Back of Mind | https://backofmind.substack.com/feed/
 Strange Loop Canon | https://www.strangeloopcanon.com/feed/
 Proof Trading | https://medium.com/feed/prooftrading
+Giles Capital | https://gilescapital.substack.com/feed
 
 # batch_data
 Eugene Yan | https://eugeneyan.com/rss/
@@ -66,9 +73,6 @@ Not Boring by Packy McCormick | https://notboring.substack.com/feed/
 Interconnects AI | https://robotic.substack.com/feed
 Understanding AI | https://www.understandingai.org/feed
 Import AI | https://importai.substack.com/feed
-Stay SaaSy | https://staysaasy.com/feed.xml
-benkuhn.net | http://www.benkuhn.net/rss/
-Irrational Exuberance | http://lethain.com/feeds/all/
 Alex Danco's Newsletter | https://danco.substack.com/feed/
 Hardcore Software by Steven Sinofsky | https://hardcoresoftware.learningbyshipping.com/feed/
 FreakTakes | https://freaktakes.substack.com/feed
@@ -77,7 +81,6 @@ Vicki Boykis | http://veekaybee.github.io/feed.xml
 Sebastian Ruder | http://ruder.io/rss/index.rss
 StaffEng | https://staffeng.com/rss
 AI Futures Project | https://blog.ai-futures.org/feed
-Statistical Modeling, Causal Inference, and Social Science | http://www.stat.columbia.edu/~cook/movabletype/mlm/atom.xml
 Variance Explained | http://varianceexplained.org/feed.xml
 Chelsea Troy | https://chelseatroy.com/feed/
 The Developing Dev | https://www.developing.dev/feed
@@ -103,7 +106,6 @@ The Viewer | https://theviewer.is/rss/
 Justin Kuiper | https://justinkuiper.substack.com/feed/
 
 # fun
-smitten kitchen | http://feeds.feedburner.com/smittenkitchen
 Useless Etymology | https://uselessetymology.com/feed/
 LOL (lots of links) | https://lotsoflinks.substack.com/feed
 SubMakk | https://rebeccamakkai.substack.com/feed

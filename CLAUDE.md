@@ -21,6 +21,7 @@ python -m reading_recs
 - `FEED_MAX_ENTRIES = 10` — default per-feed entry cap (fallback for undated feeds)
 - `LLM_SCORE_THRESHOLD = 6` — minimum score to include in digest
 - `MIN_ARTICLES = 5`, `MAX_ARTICLES = 10` — digest size bounds
+- `TOP_SOURCE_BOOST = 2.0` — score boost for articles from feeds in the `# top` section
 
 ## Pipeline stages
 

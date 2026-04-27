@@ -16,11 +16,15 @@ _client = httpx.Client(timeout=15, follow_redirects=True, headers={
 
 
 def parse_feeds() -> list[dict]:
-    """Parse feeds.txt, return list of {url, title, is_aggregator, require_date}."""
+    """Parse feeds.txt, preserving section comments such as "# top"."""
     feeds = []
+    section = ""
     for line in FEEDS_PATH.read_text().splitlines():
         line = line.strip()
-        if not line or line.startswith("#"):
+        if not line:
+            continue
+        if line.startswith("#"):
+            section = line.lstrip("#").strip().lower()
             continue
         parts = [p.strip() for p in line.split("|")]
         if len(parts) >= 2:
@@ -36,6 +40,7 @@ def parse_feeds() -> list[dict]:
             "title": title,
             "is_aggregator": False,
             "max_entries": max_entries,
+            "section": section,
         })
     return feeds
 
@@ -129,6 +134,7 @@ def fetch_feeds() -> list[Article]:
                         title=getattr(entry, "title", url),
                         source=feed_info["title"],
                         text="",  # will be filled by full-text fetch
+                        source_section=feed_info["section"],
                     ))
             else:
                 link = getattr(entry, "link", None)
@@ -144,6 +150,7 @@ def fetch_feeds() -> list[Article]:
                     title=getattr(entry, "title", link),
                     source=feed_info["title"],
                     text=summary,
+                    source_section=feed_info["section"],
                     comment_count=_get_comment_count(entry),
                 ))
 

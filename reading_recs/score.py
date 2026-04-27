@@ -11,6 +11,7 @@ from reading_recs.config import (
     LLM_SCORE_THRESHOLD,
     MIN_ARTICLES,
     MAX_ARTICLES,
+    TOP_SOURCE_BOOST,
     SOURCE_PENALTY_PER_REC,
     SOURCE_PENALTY_LOOKBACK_DAYS,
 )
@@ -125,7 +126,11 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
     for sa in candidates:
         count = source_counts.get(sa.article.source, 0)
         penalty = SOURCE_PENALTY_PER_REC * count
-        sa.adjusted_score = sa.llm_score - penalty
+        boost = TOP_SOURCE_BOOST if sa.article.source_section == "top" else 0.0
+        sa.adjusted_score = min(10.0, sa.llm_score + boost) - penalty
+        if boost > 0:
+            log.info("  %s - boost +%.1f (source '%s' is in top section)",
+                     sa.article.title[:50], boost, sa.article.source)
         if penalty > 0:
             log.info("  %s — penalty %.1f (source '%s' recommended %d times in last %d days)",
                      sa.article.title[:50], penalty, sa.article.source, count, SOURCE_PENALTY_LOOKBACK_DAYS)

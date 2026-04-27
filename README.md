@@ -25,7 +25,7 @@ pip install .
 python -m reading_recs
 ```
 
-To run on a schedule, a GitHub Actions workflow is included at `.github/workflows/digest.yml`. It runs weekdays at 8am ET. Add your `.env` values as repository secrets under **Settings → Secrets and variables → Actions**, then push to GitHub. You can also trigger it manually from the **Actions** tab.
+To run on a schedule, a GitHub Actions workflow is included at `.github/workflows/digest.yml`. It runs daily at 8am ET. Add your `.env` values as repository secrets under **Settings → Secrets and variables → Actions**, then push to GitHub. You can also trigger it manually from the **Actions** tab.
 
 ## Customizing
 
@@ -69,3 +69,4 @@ Key settings you might want to tune:
 | `LLM_SCORE_THRESHOLD` | 6 | Minimum score (1–10) to include in the digest |
 | `MIN_ARTICLES` | 5 | Minimum digest size |
 | `MAX_ARTICLES` | 10 | Maximum digest size |
+| `TOP_SOURCE_BOOST` | 2.0 | Score boost for articles from feeds in the `# top` section |
