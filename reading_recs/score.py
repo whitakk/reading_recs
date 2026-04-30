@@ -10,7 +10,6 @@ from reading_recs.config import (
     FAVORITES_PATH,
     LLM_SCORE_THRESHOLD,
     MIN_ARTICLES,
-    MAX_ARTICLES,
     TOP_SOURCE_BOOST,
     SOURCE_PENALTY_PER_REC,
     SOURCE_PENALTY_LOOKBACK_DAYS,
@@ -135,7 +134,7 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
             log.info("  %s — penalty %.1f (source '%s' recommended %d times in last %d days)",
                      sa.article.title[:50], penalty, sa.article.source, count, SOURCE_PENALTY_LOOKBACK_DAYS)
 
-    # Select: adjusted_score >= threshold, floor at MIN, cap at MAX
+    # Select: adjusted_score >= threshold, floor at MIN, no cap
     passing = [sa for sa in candidates if sa.adjusted_score >= LLM_SCORE_THRESHOLD]
     passing.sort(key=lambda s: s.adjusted_score, reverse=True)
 
@@ -145,5 +144,4 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
         all_scored.sort(key=lambda s: s.adjusted_score, reverse=True)
         passing = all_scored[:MIN_ARTICLES]
 
-    selected = passing[:MAX_ARTICLES]
-    return selected
+    return passing
