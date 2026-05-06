@@ -112,16 +112,20 @@ def fetch_feeds() -> list[Article]:
     cutoff = datetime.now(timezone.utc) - timedelta(days=FEED_LOOKBACK_DAYS)
 
     for feed_info in feeds:
-        log.info("Fetching feed: %s", feed_info["title"])
         try:
             parsed = feedparser.parse(feed_info["url"])
         except Exception as e:
             log.warning("Failed to parse feed %s: %s", feed_info["url"], e)
             continue
 
+        total_entries = len(parsed.entries[:feed_info["max_entries"]])
+        before = len(articles)
+        skipped_old = 0
+
         for entry in parsed.entries[:feed_info["max_entries"]]:
             pub = _entry_published(entry)
             if pub and pub < cutoff:
+                skipped_old += 1
                 continue
 
             if feed_info["is_aggregator"]:
@@ -153,6 +157,10 @@ def fetch_feeds() -> list[Article]:
                     source_section=feed_info["section"],
                     comment_count=_get_comment_count(entry),
                 ))
+
+        added = len(articles) - before
+        log.info("  %s: %d entries in feed, %d too old, %d added",
+                 feed_info["title"], total_entries, skipped_old, added)
 
     return articles
 
