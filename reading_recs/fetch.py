@@ -118,6 +118,11 @@ def fetch_feeds() -> list[Article]:
             log.warning("Failed to parse feed %s: %s", feed_info["url"], e)
             continue
 
+        status = parsed.get("status", 0)
+        if status and status not in (200, 301, 302):
+            log.warning("  %s: HTTP %s, skipping", feed_info["title"], status)
+            continue
+
         total_entries = len(parsed.entries[:feed_info["max_entries"]])
         before = len(articles)
         skipped_old = 0
