@@ -2,11 +2,11 @@
 Paul Graham: Essays | http://www.aaronsw.com/2002/feeds/pgessays.rss | 3
 Remains of the Day | https://eugenewei.substack.com/feed/
 Dan Wang | http://danwang.co/feed/
-Alexey Guzey | https://guzey.substack.com/feed/
+Alexey Guzey | https://buttondown.com/guzey/rss
 off the run by mary childs | https://offtherun.substack.com/feed/
 drafts — interfluidity | https://drafts.interfluidity.com/feed/index.rss
-Nabeel S. Qureshi | https://nabeelqu.substack.com/feed
-MD&A | https://philo.substack.com/feed/
+Nabeel S. Qureshi | https://nabeelqu.co/feed
+MD&A | https://www.md-a.co/feed
 The Scholar's Stage | http://scholars-stage.blogspot.com/feeds/posts/default
 Nadia Asparouhova | https://nadia.xyz/feed.xml
 Nintil | https://nintil.com/rss.xml
@@ -36,10 +36,10 @@ avitalbalwit.com | https://www.avitalbalwit.com/blog-feed.xml
 Candy for Breakfast | https://www.candyforbreakfast.email/feed
 Quantian's Newsletter | https://quantian.substack.com/feed
 Natalie Dean, PhD | https://nataliexdean.substack.com/feed
-Uncharted Territories | https://unchartedterritories.substack.com/feed/
+Uncharted Territories | https://unchartedterritories.tomaspueyo.com/feed
 A Zibaldone | https://jzmazlish.substack.com/feed/
 Works in Progress | https://worksinprogress.co/feed/
-luttig's learnings | https://luttig.substack.com/feed/
+luttig's learnings | https://blog.johnluttig.com/feed
 Dwarkesh | https://www.dwarkesh.com/feed/
 Stripe Economics | https://www.stripeeconomics.com/feed
 
@@ -52,14 +52,14 @@ Thing of Things | https://thingofthings.substack.com/feed/
 Perspectives by Patrick Wyman | https://patrickwyman.substack.com/feed/
 Essays | Basil Halperin | https://www.basilhalperin.com/essays/feed
 Random Critical Analysis | https://randomcriticalanalysis.wordpress.com/feed/
-Construction Physics | https://constructionphysics.substack.com/feed/
-Apricitas Economics | https://apricitas.substack.com/feed/
+Construction Physics | https://www.construction-physics.com/feed
+Apricitas Economics | https://www.apricitas.io/feed
 Out of the Ordinary | https://outoftheordinary.substack.com/feed
 The Tangled Woof | http://andrewbatson.com/feed/
-Cremieux Recueil | https://cremieux.substack.com/feed
+Cremieux Recueil | https://www.cremieux.xyz/feed
 Strange Tidings | https://strangetidings.substack.com/feed/
 Evan Soltas | http://esoltas.blogspot.com/feeds/posts/default
-The Century of Biology | https://centuryofbio.substack.com/feed/
+The Century of Biology | https://centuryofbio.com/feed
 Dylan Matthews | https://dylanmatthews.substack.com/feed/
 Dan Davies - Back of Mind | https://backofmind.substack.com/feed/
 Strange Loop Canon | https://www.strangeloopcanon.com/feed/
@@ -68,14 +68,14 @@ Giles Capital | https://gilescapital.substack.com/feed
 
 # batch_data
 Eugene Yan | https://eugeneyan.com/rss/
-One Useful Thing | https://oneusefulthing.substack.com/feed
-Not Boring by Packy McCormick | https://notboring.substack.com/feed/
-Interconnects AI | https://robotic.substack.com/feed
+One Useful Thing | https://www.oneusefulthing.org/feed
+Not Boring by Packy McCormick | https://www.notboring.co/feed
+Interconnects AI | https://www.interconnects.ai/feed
 Understanding AI | https://www.understandingai.org/feed
 Import AI | https://importai.substack.com/feed
 Alex Danco's Newsletter | https://danco.substack.com/feed/
 Hardcore Software by Steven Sinofsky | https://hardcoresoftware.learningbyshipping.com/feed/
-FreakTakes | https://freaktakes.substack.com/feed
+FreakTakes | https://www.freaktakes.com/feed
 Matt Rickard | https://blog.matt-rickard.com/feed
 Vicki Boykis | http://veekaybee.github.io/feed.xml
 Sebastian Ruder | http://ruder.io/rss/index.rss
@@ -84,7 +84,7 @@ AI Futures Project | https://blog.ai-futures.org/feed
 Variance Explained | http://varianceexplained.org/feed.xml
 Chelsea Troy | https://chelseatroy.com/feed/
 The Developing Dev | https://www.developing.dev/feed
-Engineering Enablement | https://abinoda.substack.com/feed
+Engineering Enablement | https://newsletter.getdx.com/feed
 Netflix TechBlog | http://techblog.netflix.com/feeds/posts/default
 Stripe Blog | https://stripe.com/blog/feed.rss
 Apple Machine Learning Journal | https://machinelearning.apple.com/feed.xml
