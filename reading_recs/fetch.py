@@ -11,7 +11,7 @@ from reading_recs.models import Article
 log = logging.getLogger(__name__)
 
 _client = httpx.Client(timeout=15, follow_redirects=True, headers={
-    "User-Agent": "reading_recs/0.1 (personal RSS aggregator)"
+    "User-Agent": "python-feedparser/6.0.8 +https://github.com/kurtmckee/feedparser"
 })
 
 
