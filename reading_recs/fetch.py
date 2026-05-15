@@ -1,4 +1,5 @@
 import logging
+import re
 from datetime import datetime, timezone, timedelta
 
 import feedparser
@@ -13,6 +14,14 @@ log = logging.getLogger(__name__)
 _client = httpx.Client(timeout=15, follow_redirects=True, headers={
     "User-Agent": "python-feedparser/6.0.8 +https://github.com/kurtmckee/feedparser"
 })
+
+
+def _proxy_url(url: str) -> str:
+    """Route *.substack.com URLs through openrss.org to bypass GitHub Actions IP blocks."""
+    if re.search(r"\.substack\.com(/|$)", url):
+        bare = re.sub(r"^https?://", "", url)
+        return f"https://openrss.org/{bare}"
+    return url
 
 
 def parse_feeds() -> list[dict]:
@@ -113,7 +122,7 @@ def fetch_feeds() -> list[Article]:
 
     for feed_info in feeds:
         try:
-            resp = _client.get(feed_info["url"])
+            resp = _client.get(_proxy_url(feed_info["url"]))
             resp.raise_for_status()
         except Exception as e:
             log.warning("  %s: fetch failed: %s", feed_info["title"], e)

@@ -5,7 +5,7 @@ Dan Wang | http://danwang.co/feed/
 Alexey Guzey | https://buttondown.com/guzey/rss
 off the run by mary childs | https://offtherun.substack.com/feed/
 drafts — interfluidity | https://drafts.interfluidity.com/feed/index.rss
-Nabeel S. Qureshi | https://nabeelqu.co/feed
+Nabeel S. Qureshi | https://nabeelqu.substack.com/feed
 MD&A | https://www.md-a.co/feed
 The Scholar's Stage | http://scholars-stage.blogspot.com/feeds/posts/default
 Nadia Asparouhova | https://nadia.xyz/feed.xml
@@ -45,12 +45,11 @@ Stripe Economics | https://www.stripeeconomics.com/feed
 
 # batch_serious
 Party at the Moontower | https://moontowermeta.com/feed/
-Full Stack Economics | https://fullstackeconomics.com/rss/
 Derek Lowe: In the Pipeline | https://www.science.org/blogs/pipeline/feed
 Chinese Characteristics | https://lillianli.substack.com/feed/
 Thing of Things | https://thingofthings.substack.com/feed/
 Perspectives by Patrick Wyman | https://patrickwyman.substack.com/feed/
-Essays | Basil Halperin | https://www.basilhalperin.com/essays/feed
+Essays – Basil Halperin | https://www.basilhalperin.com/essays/feed
 Random Critical Analysis | https://randomcriticalanalysis.wordpress.com/feed/
 Construction Physics | https://www.construction-physics.com/feed
 Apricitas Economics | https://www.apricitas.io/feed
@@ -77,9 +76,8 @@ Alex Danco's Newsletter | https://danco.substack.com/feed/
 Hardcore Software by Steven Sinofsky | https://hardcoresoftware.learningbyshipping.com/feed/
 FreakTakes | https://www.freaktakes.com/feed
 Matt Rickard | https://blog.matt-rickard.com/feed
-Vicki Boykis | http://veekaybee.github.io/feed.xml
+Vicki Boykis | https://vickiboykis.com/index.xml
 Sebastian Ruder | http://ruder.io/rss/index.rss
-StaffEng | https://staffeng.com/rss
 AI Futures Project | https://blog.ai-futures.org/feed
 Variance Explained | http://varianceexplained.org/feed.xml
 Chelsea Troy | https://chelseatroy.com/feed/
@@ -94,7 +92,7 @@ Sean Goedecke | https://www.seangoedecke.com/rss.xml
 Evan Hahn | https://evanhahn.com/blog/index.xml 
 
 # batch_fun
-Matt Lakeman | https://dormin.org/feed/
+Matt Lakeman | https://mattlakeman.org/feed/
 The Sunday Long Read | https://sundaylongread.com/feed/
 Why is this interesting? | https://whyisthisinteresting.substack.com/feed/
 The Whippet | https://thewhippet.substack.com/feed/
@@ -102,7 +100,6 @@ Now I Know | http://nowiknow.com/feed/
 A Thing or Two | https://athingortwo.substack.com/feed
 Stew's Letter | https://stewfortier.substack.com/feed/
 Make Time | https://maketime.blog/feed/
-The Viewer | https://theviewer.is/rss/
 Justin Kuiper | https://justinkuiper.substack.com/feed/
 
 # fun
@@ -114,7 +111,7 @@ SubMakk | https://rebeccamakkai.substack.com/feed
 Smart Football | http://smartfootball.com/feed
 Cleaning the Glass | https://cleaningtheglass.com/feed/
 medium lights | https://mediumlights.substack.com/feed/
-kenpom.com blog | http://kenpom.com/blog/index.php/weblog/rss_2.0/
+kenpom.com blog | https://kenpom.com/blog/feed
 Tangotiger Blog | http://tangotiger.com/index.php/site/atom
 Sabermetric Research | http://sabermetricresearch.blogspot.com/feeds/posts/default
 
