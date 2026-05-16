@@ -1,12 +1,13 @@
 import logging
 import re
 from datetime import datetime, timezone, timedelta
+from urllib.parse import quote as urlquote
 
 import feedparser
 import httpx
 from bs4 import BeautifulSoup
 
-from reading_recs.config import FEEDS_PATH, FEED_LOOKBACK_DAYS, FEED_MAX_ENTRIES
+from reading_recs.config import FEEDS_PATH, FEED_LOOKBACK_DAYS, FEED_MAX_ENTRIES, WORKER_BASE_URL
 from reading_recs.models import Article
 
 log = logging.getLogger(__name__)
@@ -17,10 +18,9 @@ _client = httpx.Client(timeout=15, follow_redirects=True, headers={
 
 
 def _proxy_url(url: str) -> str:
-    """Route *.substack.com URLs through openrss.org to bypass GitHub Actions IP blocks."""
-    if re.search(r"\.substack\.com(/|$)", url):
-        bare = re.sub(r"^https?://", "", url)
-        return f"https://openrss.org/{bare}"
+    """Route *.substack.com URLs through the Cloudflare Worker to bypass GitHub Actions IP blocks."""
+    if re.search(r"\.substack\.com(/|$)", url) and WORKER_BASE_URL:
+        return f"{WORKER_BASE_URL.rstrip('/')}/proxy-feed?url={urlquote(url, safe='')}"
     return url
 
 
