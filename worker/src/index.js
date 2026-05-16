@@ -3,6 +3,11 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
+    // GET /proxy-feed?url=<substack-url> — proxy *.substack.com RSS feeds
+    if (path === "/proxy-feed" && request.method === "GET") {
+      return handleProxyFeed(request);
+    }
+
     // GET /feedback/:digestId — render feedback page
     const getMatch = path.match(/^\/feedback\/([a-f0-9]+)$/);
     if (getMatch && request.method === "GET") {
@@ -18,6 +23,37 @@ export default {
     return new Response("Not found", { status: 404 });
   },
 };
+
+async function handleProxyFeed(request) {
+  const targetUrl = new URL(request.url).searchParams.get("url");
+  if (!targetUrl) {
+    return new Response("Missing url parameter", { status: 400 });
+  }
+
+  let parsed;
+  try {
+    parsed = new URL(targetUrl);
+  } catch {
+    return new Response("Invalid URL", { status: 400 });
+  }
+
+  if (!parsed.hostname.endsWith(".substack.com")) {
+    return new Response("Only *.substack.com URLs are allowed", { status: 403 });
+  }
+
+  try {
+    const resp = await fetch(targetUrl, {
+      headers: { "User-Agent": "python-feedparser/6.0.8 +https://github.com/kurtmckee/feedparser" },
+    });
+    const body = await resp.text();
+    return new Response(body, {
+      status: resp.status,
+      headers: { "Content-Type": resp.headers.get("Content-Type") || "application/xml" },
+    });
+  } catch (e) {
+    return new Response(`Proxy fetch failed: ${e.message}`, { status: 502 });
+  }
+}
 
 async function handleGetFeedback(env, digestId) {
   const digest = await env.FEEDBACK_KV.get(`digest:${digestId}`, "json");
