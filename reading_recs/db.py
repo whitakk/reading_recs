@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS articles (
     text TEXT,
     embedding_score REAL,
     llm_score REAL,
-    reason TEXT,
+    summary TEXT,
     recommended INTEGER DEFAULT 0,
     run_date TEXT
 );
@@ -59,6 +59,11 @@ def get_conn() -> sqlite3.Connection:
 def init_db():
     conn = get_conn()
     conn.executescript(SCHEMA)
+    try:
+        conn.execute("ALTER TABLE articles RENAME COLUMN reason TO summary")
+        conn.commit()
+    except Exception:
+        pass  # Already migrated or fresh DB
     conn.close()
 
 
@@ -85,7 +90,7 @@ def save_articles(scored_articles: list[ScoredArticle], recommended_urls: set[st
     for sa in scored_articles:
         conn.execute(
             """INSERT OR REPLACE INTO articles
-               (url, title, source, text, embedding_score, llm_score, reason, recommended, run_date)
+               (url, title, source, text, embedding_score, llm_score, summary, recommended, run_date)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 sa.article.url,
@@ -94,7 +99,7 @@ def save_articles(scored_articles: list[ScoredArticle], recommended_urls: set[st
                 sa.article.text[:5000],
                 0.0,
                 sa.llm_score,
-                sa.reason,
+                sa.summary,
                 1 if sa.article.url in recommended_urls else 0,
                 today,
             ),

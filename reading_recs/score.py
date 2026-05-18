@@ -28,8 +28,8 @@ Criteria:
 - Differentiated — unique perspective, not a generic take
 - Topically biased toward (but not limited to): economics, AI, data science, technology, business strategy, public policy
 
-Respond with ONLY a JSON object: {"score": <1-10>, "reason": "<2 sentences>"}
-The reason is a reader-facing blurb — write it the same way regardless of your score. Pull out the most surprising or counterintuitive insight, or summarize the core argument/story. Be direct and specific. Don't start with 'This article' or 'The author'. Never reference the score, quality, depth, or how the piece compares to others. Example: 'Gig economy minimum wages backfire by reducing flexibility — Uber data shows drivers earn less overall after wage floors are set. The real beneficiary turns out to be the platform, not workers.'"""
+Respond with ONLY a JSON object: {"score": <1-10>, "summary": "<2 sentences>"}
+The summary is a reader-facing description of what the article covers — write it the same way regardless of your score. Summarize the content in 2 sentences. If there's a genuinely surprising or counterintuitive finding, lead with that; otherwise just describe what the piece covers. Be direct and concrete. Don't start with 'This article' or 'The author'. Never evaluate the article, reference the score, or say whether the reader will like it. Example: 'Gig economy minimum wages backfire by reducing flexibility — Uber data shows drivers earn less overall after wage floors are set. The real beneficiary turns out to be the platform, not workers.'"""
 
 
 def _load_few_shot_examples() -> str:
@@ -48,7 +48,7 @@ def _parse_llm_response(text: str) -> dict | None:
     text = text.strip()
     try:
         result = json.loads(text)
-        if "score" in result and "reason" in result:
+        if "score" in result and "summary" in result:
             return result
     except json.JSONDecodeError:
         log.warning("Failed to parse LLM response: %s", text[:200])
@@ -117,8 +117,8 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
         )
         if result:
             sa.llm_score = result["score"]
-            sa.reason = result["reason"]
-            log.info("  %s — score: %d, reason: %s", sa.article.title[:50], sa.llm_score, sa.reason)
+            sa.summary = result["summary"]
+            log.info("  %s — score: %d, summary: %s", sa.article.title[:50], sa.llm_score, sa.summary)
 
     # Apply source variety penalty based on recent recommendation history
     source_counts = db.get_recent_source_counts(SOURCE_PENALTY_LOOKBACK_DAYS)
