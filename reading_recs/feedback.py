@@ -45,7 +45,7 @@ def push_digest_to_kv(digest_id: str, articles: list[ScoredArticle]):
                 "title": sa.article.title,
                 "source": sa.article.source,
                 "score": sa.llm_score,
-                "reason": sa.reason,
+                "summary": sa.summary,
             }
             for sa in articles
         ]

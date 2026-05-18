@@ -32,7 +32,7 @@ def build_html(articles: list[ScoredArticle], feedback_url: str = "") -> str:
         rows.append(f"""<div style="margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #eee;">
   <h3 style="margin:0 0 4px 0;"><a href="{sa.article.url}">{escape(sa.article.title)}</a></h3>
   <div style="color:#666;font-size:13px;margin-bottom:4px;">{escape(sa.article.source)} · {sa.llm_score}/10{limited_flag}</div>
-  <div style="color:#333;font-size:14px;">{escape(sa.reason)}</div>
+  <div style="color:#333;font-size:14px;">{escape(sa.summary)}</div>
 </div>""")
 
     body = "\n".join(rows)
