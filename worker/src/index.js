@@ -108,7 +108,7 @@ function renderFeedbackPage(digest, digestId, existingFeedback) {
         <a href="${escapeAttr(a.url)}" target="_blank">${escapeHtml(a.title)}</a>
       </div>
       <div class="article-meta">${escapeHtml(a.source)} · ${a.score}/10</div>
-      <div class="article-reason">${escapeHtml(a.summary)}</div>
+      <div class="article-reason">${escapeHtml(a.summary || a.reason || "")}</div>
       <div class="buttons">
         <button class="btn thumb-up ${upActive}" onclick="vote(this, true)">&#128077;</button>
         <button class="btn thumb-down ${downActive}" onclick="vote(this, false)">&#128078;</button>
