@@ -71,6 +71,7 @@ One Useful Thing | https://www.oneusefulthing.org/feed
 Not Boring by Packy McCormick | https://www.notboring.co/feed
 Interconnects AI | https://www.interconnects.ai/feed
 Understanding AI | https://www.understandingai.org/feed
+Epoch AI | https://epochai.substack.com/feed
 Import AI | https://importai.substack.com/feed
 Alex Danco's Newsletter | https://danco.substack.com/feed/
 Hardcore Software by Steven Sinofsky | https://hardcoresoftware.learningbyshipping.com/feed/
