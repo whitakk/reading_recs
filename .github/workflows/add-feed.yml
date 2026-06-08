@@ -1,0 +1,114 @@
+name: Add Feed
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Feed display name
+        required: true
+        type: string
+      url:
+        description: RSS or Atom feed URL
+        required: true
+        type: string
+      section:
+        description: feeds.txt section name, without the leading #
+        required: true
+        default: batch_data
+        type: string
+      limit:
+        description: Optional per-feed entry cap
+        required: false
+        type: string
+
+jobs:
+  add-feed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Add feed to feeds.txt
+        env:
+          FEED_NAME: ${{ inputs.name }}
+          FEED_URL: ${{ inputs.url }}
+          FEED_SECTION: ${{ inputs.section }}
+          FEED_LIMIT: ${{ inputs.limit }}
+        run: |
+          python - <<'PY'
+          import os
+          import sys
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          path = Path("feeds.txt")
+          name = os.environ["FEED_NAME"].strip()
+          url = os.environ["FEED_URL"].strip()
+          section = os.environ["FEED_SECTION"].strip().removeprefix("#").strip()
+          limit = os.environ.get("FEED_LIMIT", "").strip()
+
+          if not name:
+              sys.exit("Feed name is required.")
+          if "|" in name:
+              sys.exit("Feed name cannot contain '|'.")
+          if "|" in url:
+              sys.exit("Feed URL cannot contain '|'.")
+          parsed = urlparse(url)
+          if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+              sys.exit("Feed URL must be an absolute http(s) URL.")
+          if not section:
+              sys.exit("Feed section is required.")
+          if limit:
+              try:
+                  parsed_limit = int(limit)
+              except ValueError:
+                  sys.exit("Feed limit must be a positive integer.")
+              if parsed_limit < 1:
+                  sys.exit("Feed limit must be a positive integer.")
+
+          lines = path.read_text().splitlines()
+          existing_sections = [line[2:].strip() for line in lines if line.startswith("# ")]
+          target_header = f"# {section}"
+          try:
+              section_start = lines.index(target_header)
+          except ValueError:
+              available = ", ".join(existing_sections)
+              sys.exit(f"Section '{section}' was not found. Available sections: {available}")
+
+          for line in lines:
+              stripped = line.strip()
+              if not stripped or stripped.startswith("#"):
+                  continue
+              parts = [part.strip() for part in stripped.split("|")]
+              if len(parts) >= 2 and parts[1].rstrip("/") == url.rstrip("/"):
+                  sys.exit(f"Feed URL already exists in feeds.txt: {parts[1]}")
+
+          entry = f"{name} | {url}"
+          if limit:
+              entry = f"{entry} | {limit}"
+
+          section_end = len(lines)
+          for index in range(section_start + 1, len(lines)):
+              if lines[index].startswith("# "):
+                  section_end = index
+                  break
+          insert_at = section_end
+          if insert_at > section_start and lines[insert_at - 1].strip() == "":
+              insert_at -= 1
+
+          lines.insert(insert_at, entry)
+          path.write_text("\n".join(lines) + "\n")
+          PY
+
+      - name: Commit feed update
+        env:
+          FEED_NAME: ${{ inputs.name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feeds.txt
+          git diff --cached --quiet || git commit -m "Add feed: ${FEED_NAME}"
+          git push origin HEAD:main
