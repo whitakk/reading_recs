@@ -42,6 +42,7 @@ Works in Progress | https://worksinprogress.co/feed/
 luttig's learnings | https://blog.johnluttig.com/feed
 Dwarkesh | https://www.dwarkesh.com/feed/
 Stripe Economics | https://www.stripeeconomics.com/feed
+Early Days | https://earlydaysbymerlin.substack.com/feed/
 
 # batch_serious
 Party at the Moontower | https://moontowermeta.com/feed/
