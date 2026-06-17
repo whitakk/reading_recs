@@ -12,16 +12,16 @@ Nadia Asparouhova | https://nadia.xyz/feed.xml
 Nintil | https://nintil.com/rss.xml
 Dan Luu | https://danluu.com/atom.xml
 benkuhn.net | http://www.benkuhn.net/rss/
-Irrational Exuberance | http://lethain.com/feeds/all/
+Irrational Exuberance | https://lethain.com/feeds.xml
 Stay SaaSy | https://staysaasy.com/feed.xml
-Statistical Modeling, Causal Inference, and Social Science | http://www.stat.columbia.edu/~cook/movabletype/mlm/atom.xml
+Statistical Modeling, Causal Inference, and Social Science | https://statmodeling.substack.com/feed
 smitten kitchen | http://feeds.feedburner.com/smittenkitchen
 Noahpinion | https://www.noahpinion.blog/feed
 Links I Would Gchat You | https://linksiwouldgchatyou.substack.com/feed/
 
 # misc
 Eating Policy | https://www.eatingpolicy.com/feed
-Planned Obsolescence | https://www.planned-obsolescence.org/rss/
+Planned Obsolescence | https://www.planned-obsolescence.org/feed
 Margins | https://themargins.substack.com/feed/
 Posts on generative.ink | https://generative.ink/posts/index.xml
 Applied Divinity Studies | https://applieddivinitystudies.com/atom.xml
@@ -123,4 +123,4 @@ The New Fatherhood | https://www.thenewfatherhood.org/feed/
 A Cup of Ambition | https://acupofambition.substack.com/feed
 
 # people
-Frequently Bayesian | https://frequentlybayesian.wordpress.com/feed/
+Frequently Bayesian | https://blog.bifunctional.xyz/rss.xml
