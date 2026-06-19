@@ -1,8 +1,8 @@
-name: Daily Digest
+name: MWF Digest
 
 on:
   schedule:
-    - cron: '0 13 * * *'  # 8am ET daily
+    - cron: '0 13 * * 1,3,5'  # 8am ET Monday/Wednesday/Friday
   workflow_dispatch:  # allow manual runs from the Actions tab
 
 jobs:

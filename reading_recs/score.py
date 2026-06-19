@@ -13,6 +13,7 @@ from reading_recs.config import (
     TOP_SOURCE_BOOST,
     SOURCE_PENALTY_PER_REC,
     SOURCE_PENALTY_LOOKBACK_DAYS,
+    MAX_ARTICLES_PER_SOURCE,
 )
 from reading_recs.models import ScoredArticle
 
@@ -92,6 +93,34 @@ Text (excerpt):
         return None
 
 
+def _limit_articles_per_source(
+    articles: list[ScoredArticle],
+    max_articles: int | None = None,
+) -> list[ScoredArticle]:
+    """Return articles in rank order, capped per source for a single digest."""
+    selected: list[ScoredArticle] = []
+    source_counts: dict[str, int] = {}
+
+    for sa in articles:
+        source_count = source_counts.get(sa.article.source, 0)
+        if source_count >= MAX_ARTICLES_PER_SOURCE:
+            log.info(
+                "  %s - skipped (source '%s' already has %d articles in this digest)",
+                sa.article.title[:50],
+                sa.article.source,
+                MAX_ARTICLES_PER_SOURCE,
+            )
+            continue
+
+        selected.append(sa)
+        source_counts[sa.article.source] = source_count + 1
+
+        if max_articles is not None and len(selected) >= max_articles:
+            break
+
+    return selected
+
+
 def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
     """Score candidates with LLM, select top articles for digest."""
     few_shot = _load_few_shot_examples()
@@ -134,14 +163,16 @@ def score_and_select(candidates: list[ScoredArticle]) -> list[ScoredArticle]:
             log.info("  %s — penalty %.1f (source '%s' recommended %d times in last %d days)",
                      sa.article.title[:50], penalty, sa.article.source, count, SOURCE_PENALTY_LOOKBACK_DAYS)
 
-    # Select: adjusted_score >= threshold, floor at MIN, no cap
+    # Select: adjusted_score >= threshold, floor at MIN, no overall cap.
+    # Enforce a per-digest source cap so one prolific feed cannot dominate.
     passing = [sa for sa in candidates if sa.adjusted_score >= LLM_SCORE_THRESHOLD]
     passing.sort(key=lambda s: s.adjusted_score, reverse=True)
+    selected = _limit_articles_per_source(passing)
 
-    if len(passing) < MIN_ARTICLES:
-        # Fall back to top by adjusted score
+    if len(selected) < MIN_ARTICLES:
+        # Fall back to top by adjusted score while preserving the source cap.
         all_scored = [sa for sa in candidates if sa.llm_score > 0]
         all_scored.sort(key=lambda s: s.adjusted_score, reverse=True)
-        passing = all_scored[:MIN_ARTICLES]
+        selected = _limit_articles_per_source(all_scored, MIN_ARTICLES)
 
-    return passing
+    return selected
