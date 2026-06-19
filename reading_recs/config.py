@@ -27,6 +27,7 @@ MIN_ARTICLES = 10
 TOP_SOURCE_BOOST = 2.0
 SOURCE_PENALTY_PER_REC = 0.3    # score penalty per recent recommendation from the same source
 SOURCE_PENALTY_LOOKBACK_DAYS = 14  # window for counting recent recommendations
+MAX_ARTICLES_PER_SOURCE = 2  # maximum articles from one source in a single digest
 
 # Cloudflare (feedback system)
 CLOUDFLARE_API_TOKEN = os.environ.get("CLOUDFLARE_API_TOKEN", "")
